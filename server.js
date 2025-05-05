@@ -2,7 +2,7 @@ const https = require('https');
 const fs = require('fs');
 const express = require('express');
 const cors = require('cors');
-
+const os = require('os');
 const app = express();
 const PORT = 3000;
 
@@ -28,6 +28,10 @@ app.post('/imprimir', (req, res) => {
     console.error('Error al imprimir:', error.message);
     return res.status(500).send('Error al imprimir');
   }
+});
+
+app.get('/get_ip', (req, res) => {
+  res.json({ ip: '192.168.88.254' });
 });
 
 // Opciones SSL
